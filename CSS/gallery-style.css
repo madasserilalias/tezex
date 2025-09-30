@@ -289,7 +289,7 @@
 
 
         /* --- 5. Media Queries (Desktop/Tablet) --- */
-        @media (min-width: 768px) {
+        @media (min-width: 1200px) {
             /* Header/Nav Layout */
             header { flex-direction: row; justify-content: space-between; padding: 5px 40px; }
             .navbar { justify-content: flex-start; padding: 10px 40px; }
@@ -315,4 +315,5 @@
             .quick-links { flex-basis: 20%; }
             .get-in-touch { flex-basis: 35%; }
         }
+
   
