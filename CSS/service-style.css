@@ -312,7 +312,7 @@ nav a.active::before, nav a.active::after { display: none; }
 
 
 /* --- 5. Media Queries (Desktop/Tablet) --- */
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     /* Header/Nav Layout */
     header {
         flex-direction: row;
@@ -385,4 +385,5 @@ nav a.active::before, nav a.active::after { display: none; }
     .quick-links { flex-basis: 20%; }
     .get-in-touch { flex-basis: 35%; }
 }
+
     </style>
