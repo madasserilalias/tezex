@@ -48,7 +48,7 @@ a[href^="mailto:"] {
     overflow: hidden;
     
     /* === BACKGROUND IMAGE OPTION === */
-    background-image: url('images/substation.webp'); 
+    background-image: url('images/substation.jpg'); 
     background-size: cover;
     background-position: center top;
     transition: background-position 2s ease-in-out;
@@ -391,4 +391,5 @@ nav a.active::before, nav a.active::after { display: none; }
   MOBILE-FRIENDLY CSS END
 ====================================
 */
+
   
