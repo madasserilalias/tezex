@@ -300,7 +300,7 @@ nav a.active::before, nav a.active::after { display: none; }
 }
 
 /* --- 7. Media Queries for Tablet/Desktop --- */
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     
     /* Header: Horizontal flow */
     header {
@@ -393,6 +393,7 @@ nav a.active::before, nav a.active::after { display: none; }
 */
 
   
+
 
 
 
