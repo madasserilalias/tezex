@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tezex - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/about.style">
+    <style>
+        /* --- Color Palette --- */
+        /* Primary Teal: #00BCD4 */
+        /* Accent Orange: #FF9800 */
+        /* Dark Navy Blue: #1A237E */
+        /* Light Background: #F9F9F9 */
+        /* Text Color: #333333 */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            /* Theme Colors */
+            --dark-blue: #2a2e41; /* Footer background */
+            --accent-blue: #0000ff; /* Highlights/Links (Not used for block bullets) */
+            --text-light: #ffffff;
+            --page-bg: #d9d9d9; /* Light background*/
+            
+            /* Block Colors */
+            --block-blue: #1A237E; /* Using Dark Navy for consistency and better contrast */
+            --block-green: #006400; /* Dark Green*/
+            --block-black: #000000;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333333;
+            background-color: #F9F9F9;
+            line-height: 1.6;
+        }
+
+        /* --- Header & Navigation --- */
+        #main-header {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background-color: #fff;
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Top Bar (Contact Info) */
+        .top-bar {
+            background-color: #1A237E; /* Dark Navy */
+            color: #fff;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+        }
+        .top-bar .contact-info span, .top-bar .location-info {
+            margin-right: 20px;
+        }
+        .top-bar a {
+            color: #FF9800; /* Orange highlight for email */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .top-bar a:hover {
+            color: #fff;
+        }
+        .top-bar i {
+            color: #00BCD4; /* Teal icon */
+            margin-right: 5px;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 15px 5%;
+        }
+        .logo-img {
+            width: 150px;
+            border: 3px solid #ff9900;
+            height: auto;
+            margin: 0;
+            margin-right: 40px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active {
+            background-color: #FF9800; /* Orange hover effect */
+            color: #fff;
+        }
+
+        /* --- Hamburger Menu Icon --- */
+        .menu-toggle {
+            display: none; 
+            font-size: 1.8rem;
+            color: #1A237E; 
+            cursor: pointer;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1A237E; 
+            color: #fff;
+            padding: 40px 5% 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content h4 {
+            color: #00BCD4; 
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+        .footer-content h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: #FF9800; 
+        }
+
+        .footer-content p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 5px;
+        }
+
+        .footer-logo-col p {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #00BCD4;
+        }
+
+        .footer-links-col ul {
+            list-style: none;
+        }
+        .footer-links-col li {
+            margin-bottom: 8px;
+        }
+        .footer-links-col a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links-col a:hover {
+            color: #FF9800; 
+        }
+        .footer-links-col i {
+            color: #FF9800; 
+            margin-right: 5px;
+        }
+        .footer-logo-section img {
+            max-width: 150px;
+            height: auto;
+        }
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Back-to-Top Button */
+        #back-to-top {
+            display: none; 
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FF9800;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 1001;
+        }
+
+        #back-to-top:hover {
+            background-color: #00BCD4;
+            transform: translateY(-2px);
+        }
+        
+        /* --- Main Content Blocks (Enhanced Styles) --- */
+        .about-container {
+            padding: 40px 60px; /* Desktop padding */
+            display: flex;
+            flex-direction: row; /* Desktop: Horizontal layout */
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 10px;
+            align-items: stretch; /* Ensures blocks in the row have the same height */
+        }
+
+        .info-block {
+            color: var(--text-light);
+            padding: 30px;
+            border-radius: 12px; /* Smoother corners */
+            width: 45%; 
+            max-width: 600px;
+            line-height: 1.5;
+            font-size: 1.1em;
+            
+            /* Initial Decoration & Shadow */
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
+            
+            /* Hover Effect Setup */
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease-in-out; /* Smooth transition for all properties */
+        }
+
+        /* Define Block Colors */
+        .block-1 { background-color: var(--block-blue); }
+        .block-2 { background-color: var(--block-green); }
+        .block-3 { background-color: var(--block-black); }
+
+        /* Full width block styles for desktop */
+        .block-3 {
+            width: 95%; 
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- ENHANCED HOVER EFFECT --- */
+        .info-block:hover {
+            /* LIFT AND SLIGHT SCALE EFFECT */
+            transform: translateY(-5px) scale(1.02); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Internal Decoration: Subtle gradient overlay for visual appeal */
+        .info-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Subtle radial gradient from center to make text pop */
+            background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.1), transparent 70%);
+            opacity: 1; 
+            z-index: 0;
+            transition: background 0.4s ease-in-out;
+        }
+
+        /* Internal Decoration: Color change on hover */
+        .info-block:hover::before {
+            /* Brighter gradient on hover */
+            background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.2), transparent 70%);
+        }
+
+        /* Ensure text remains visible on top of the sliding background */
+        .info-block * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Styling for the List block (Block 3 content) */
+        .list-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-content li {
+            font-size: 1em; /* Adjusted slightly smaller for the list */
+            padding: 5px 0;
+        }
+        .list-content li::before {
+            content: '•';
+            color: #FF9800; /* Use the Accent Orange for list bullets */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* --- Responsive adjustments (Mobile Fixes) --- */
+        @media (max-width: 992px) {
+            /* Fix: Reduce logo size for better fit */
+            .logo-img {
+                width: 100px;
+                margin-right: 0;
+                border-width: 2px;
+            }
+
+            /* Show hamburger menu */
+            .menu-toggle {
+                display: block; 
+            }
+
+            /* Adjust navbar padding */
+            .navbar {
+                padding: 10px 5%; 
+            }
+            
+            .nav-links {
+                /* Mobile Menu Display */
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 75px; 
+                left: 0;
+                width: 100%; /* IMPORTANT: Makes menu full width */
+                
+                background-color: #fff;
+                box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+                border-top: 2px solid #00BCD4;
+                padding: 10px 0;
+            }
+
+            .nav-links.open {
+                display: flex; /* Show the menu when the 'open' class is active */
+            }
+
+            .nav-links li {
+                text-align: center;
+                margin: 5px 0;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 12px 15px;
+                border-radius: 0;
+            }
+
+            /* === CRITICAL CONTENT FIX === */
+            /* Override desktop width settings for main content blocks on mobile */
+            .about-container {
+                /* Set back to column layout for proper stacking on mobile */
+                flex-direction: column;
+                padding: 20px 5%; /* Use a smaller horizontal padding */
+                gap: 20px;
+            }
+
+            .info-block {
+                /* Remove the fixed desktop width and allow it to be nearly full width */
+                width: 100%; 
+                max-width: 100%; /* IMPORTANT: Overrides the max-width: 600px setting */
+                margin: 0; /* Reset any auto margin */
+                font-size: 1em; /* Adjust font size slightly */
+            }
+
+            /* Apply the full width to the multi-line blocks as well */
+            .block-3 {
+                width: 100%; 
+                max-width: 100%;
+            }
+            /* ============================ */
+          
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .footer-content h4 {
+                padding-left: 0;
+            }
+            .footer-content h4::before {
+                display: none;
+            }
+            .top-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .top-bar span, .top-bar div {
+                margin: 5px 0;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="top-bar">
+            <div class="contact-info">
+                <span><i class="fas fa-phone-alt"></i> Call Us +91 9895709597, 8400264581</span>
+                <span><i class="fas fa-envelope"></i> Email: <a href="mailto:tezexeng@gmail.com">tezexeng@gmail.com</a></span>
+            </div>
+            <div class="location-info">
+                <i class="fas fa-map-marker-alt"></i> 
+                <a href="https://maps.app.goo.gl/3ahZXYhrZSQ1NbHSA" target="_blank" style="color:white;">Near Metro Station, Pathadippalam, Ernakulam, Kerala-682 024.</a>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <a href="service_modi1.html" class="logo-link">
+                <img src="images/logo.png" alt="Tezex Logo" class="logo-img"/> 
+            </a>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i> 
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="service.html" >Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="about-container">
+        
+        <div class="info-block block-1">
+            <p><strong>Tezex Engineering Solutions LLP</strong> provides complete Engineering, Procurement, and Contracting (EPC) solutions across multiple industries, emphasizing quality, safety, and innovation in every project.</p>
+        </div>
+        
+        <div class="info-block block-2">
+            <p>Our specialization is in providing **turnkey projects** for the industrial and commercial sectors, covering everything from concept to final commissioning.</p>
+        </div>
+
+        <div class="info-block block-3">
+            <p>The firm is led by **Mechanical Engineering Graduates** with over 35 years of experience in the industrial and commercial sectors, specifically in:</p>
+            <div class="list-content">
+                <ul>
+                    <li>Project Management</li>
+                    <li>Electromechanical Installations</li>
+                    <li>Advanced Machine Control Systems</li>
+                    <li>Procurement</li>
+                    <li>Contract Management</li>
+                </ul>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo-col">
+                <div class="footer-logo-section">
+                    <img src="images/logo.png" alt="Tezex Logo" />
+                </div>
+                <p>YOU CAN RELY ON US FOR QUALITY WORK</p>
+            </div>
+
+            <div class="footer-links-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><i class="fas fa-caret-right"></i> <a href="index.html">Home</a></li>
+                    <li><i class="fas fa-caret-right"></i> <a href="about.html">About</a></li>
+                    <li><i class="fas fa-caret-right"></i> <a href="service.html">Services</a></li>
+                    <li><i class="fas fa-caret-right"></i> <a href="index.html#contact">Contact</a></li>
+                    <li><i class="fas fa-caret-right"></i> <a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-address-col">
+                <h4>Address</h4>
+                <p>TEZEX ENGINEERING SOLUTIONS LLP</p>
+                <p>38/133, NAMBOORIMADAM CENTRE,</p>
+                <p>PATHADIPPALAM, EDAPPALLY, ERNAKULAM,</p>
+                <p>KERALA, PIN-682024.</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2025 Tezex Engineering Solutions LLP | All Rights Reserved
+        </div>
+    </footer>
+
+    <button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Back-to-Top Button Script
+        const backToTopButton = document.getElementById('back-to-top');
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopButton.style.display = "block";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        }
+
+        backToTopButton.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth' 
+          });
+        });
+        
+        // Hamburger Menu Script
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('open');
+            
+            // Toggle the icon between bars and close (X)
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times'); 
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+
+</body>
+</html>
